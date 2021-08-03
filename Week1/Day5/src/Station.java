@@ -23,4 +23,6 @@ public class Station {
 	public void printTable(int number) {
 		System.out.printf("%-2d %-4S %-18s %2.2f %8.2f%n", number, stationCode, stationName, arrivalTime, departureTime);
 	}
+	
+	
 }
