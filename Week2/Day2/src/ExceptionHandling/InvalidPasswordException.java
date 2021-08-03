@@ -1,3 +1,4 @@
+package ExceptionHandling;
 
 public class InvalidPasswordException extends RuntimeException {
 
