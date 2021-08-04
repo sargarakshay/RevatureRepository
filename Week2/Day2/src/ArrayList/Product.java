@@ -49,5 +49,13 @@ public class Product {
 		// TODO Auto-generated method stub
 		return "Product [id = " + id + ", name = " + name + ", cost = " + cost + ", rating = " + rating + ", quantity = " +quantity + "]";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+	
+	
 	
 }
