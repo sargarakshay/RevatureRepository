@@ -14,7 +14,7 @@ public class PriorityQueueExample {
 		
 		System.out.println("Priority Queue : " +queue);
 		System.out.println("First Element using queue.element(): " +queue.element());
-		System.out.println("First Element using ueue.peek(): " +queue.peek());
+		System.out.println("First Element using queue.peek(): " +queue.peek());
 		queue.remove();
 		queue.poll();
 		System.out.println("Printing after removing Queue element using queue.remove() & queue.poll() :" +queue);

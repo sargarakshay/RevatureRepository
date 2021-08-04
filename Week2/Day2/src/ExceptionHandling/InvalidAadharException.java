@@ -10,6 +10,5 @@ public class InvalidAadharException extends Exception {
 	public InvalidAadharException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
-	}
-	
+	}	
 }

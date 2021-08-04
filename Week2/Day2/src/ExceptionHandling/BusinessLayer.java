@@ -3,13 +3,14 @@ package ExceptionHandling;
 public class BusinessLayer {
 	
 	public void isValidAadharCard(String adharCard) throws InvalidAadharException, InvalidAadharLengthException{
+		//1234567890121
+		//
 		adharCard = adharCard.replaceAll(" ", "").trim();
 		if(adharCard.matches("[0-9]{12}")) {
 			System.out.println("Aadhar Number is Valid");
 		} else if(adharCard.length()>12) {
 			throw new InvalidAadharLengthException("Invalid Aadhar Length");
-		}
-		else {
+		} else {
 			throw new InvalidAadharException("Invalid Aadhar Number");
 		}
 	}
