@@ -78,8 +78,9 @@ fabric.properties
 
 ### Eclipse ###
 */.metadata
+*/*/*.iml
 */*/pom.xml
-*/*/.idea
+*/*/.idea/
 .metadata
 bin/
 tmp/
