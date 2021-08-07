@@ -10,7 +10,7 @@ package StreamToMap;
 	// Task 4 - Convert the Stream to Map.
  */
 
-
+ 
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;

@@ -1,6 +1,5 @@
 package BillPrinting;
 
-
 /**
  * @author Akshay Vilas Sargar
  *
@@ -24,9 +23,7 @@ public class Product {
 		this.quantity = quantity;
 	}
 	
-	public int getId() {
-		return id;
-	}
+
 
 	public String getName() {
 		return name;
