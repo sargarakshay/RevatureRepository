@@ -10,7 +10,9 @@ package StreamToMap;
 	// Task 4 - Convert the Stream to Map.
  */
 
-public class Bus implements Comparable<Bus>{
+import java.io.Serializable;
+
+public class Bus implements Comparable<Bus> {
     private int id;
     private String providerName;
     private double cost;

@@ -34,6 +34,7 @@ public class Product {
         return quantity;
     }
 
+
     public static void printProducts(int i, Product product) {
         System.out.printf("%d  %-7s %-8.2f %-4d %.2f\n",i, product.name, product.cost, product.quantity,  product.cost*product.quantity);
     }

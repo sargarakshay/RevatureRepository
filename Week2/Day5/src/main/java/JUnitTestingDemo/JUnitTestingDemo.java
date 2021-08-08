@@ -15,9 +15,10 @@ public class JUnitTestingDemo {
         int max = arr[0];
 
         for (int i : arr) {
-            if (max < i) {
-                max = i;
-            }
+//            if (max < i) {
+//                max = i;
+//            }
+            max = Math.max(i, max);
         }
         return max;
     }

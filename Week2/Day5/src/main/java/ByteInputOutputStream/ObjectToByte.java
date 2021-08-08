@@ -16,8 +16,7 @@ public class ObjectToByte {
         busList.add(new Bus(111, "Xyz Travels", 1400.22, 4.3f));
 
         try {
-            FileOutputStream fout = new FileOutputStream("E:\\Revature\\RevatureRepository\\" +
-                    "Week2\\Day4\\src\\ByteInputOutputStream\\byteCodeOutput\\BusObjectByteCode.txt");
+            FileOutputStream fout = new FileOutputStream("E:\\Revature\\RevatureRepository\\Week2\\Day5\\src\\main\\java\\ByteInputOutputStream\\byteCodeOutput\\BusObjectByteCode.ser");
 
             ObjectOutputStream oos =new ObjectOutputStream(fout);
 
