@@ -1,0 +1,81 @@
+show schemas;
+
+use [db-name];
+
+show tables;
+
+set autocommit = 0;
+
+create schema [schema-name];
+
+drop schema [schema-name];
+
+create table [table-name] ([col1 type], [col2 type], [col3 type], ....);
+
+insert into [table-name] values (val1, val2, ....); (not a recommended practice)
+
+insert into [table-name] ([col1, col2, ...]) values (val1, val2, ....);
+
+update [table-name] set [col1] = [new-value], [col2] = [new-value], ... where [condition];
+
+delete from [table-name] where [condition];
+
+alter table [table-name] add [column-name] [type];
+
+create table [table-name] (
+    id int,
+    [col1 type],
+    [col2 type],
+    primary key (id) auto_increment
+);
+
+create table [table-name] (
+    id int primary key auto_increment,
+    [col1 type],
+    [col2 type]
+);
+
+alter table [table-name] add [column-name] [type] primary key auto_increment;
+
+select * from [table-name];
+
+select [col1], [col2], [col3], ... from [table-name];
+
+select   [aggregate-column], [aggregate-function-on-another-column] 
+from     [table-name] 
+group by [aggregate-column];
+
+select   [aggregate-column], [aggregate-function-on-another-column] 
+from     [table-name] 
+group by [aggregate-column]
+having   [condition-based-on-aggregate-function];
+
+select 
+case
+    when [column-name] = value then [new-value]
+    when [column-name] = value then [new-value]
+end [alias-name]
+from [table-name];
+
+alter table [table-name] drop column [column-name];
+
+// Implicit Join Notation
+select * from [table1], [table2], [table3] .... where [join-conditions];
+
+// Explicit Join Notation
+select * from [table1] 
+    inner join [table2] on [join-condition]
+    inner join [table3] on [join-condition]
+    inner join [table4] on [join-condition]
+    ...
+;
+
+alter table [table-name] add constraint [constraint-name] foreign key ([ref-column-name]) references [link-table-name](link-table-column-name);
+
+create table [table-name] (
+    id int primary key auto_increment,
+    [col1 type],
+    [col2 type],
+    primary key (id),
+    constraint [constraint-name] foreign key ([this-table-column-name]) references [ref-table-name]([ref-table-column])
+);
