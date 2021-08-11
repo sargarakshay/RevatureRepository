@@ -12,7 +12,7 @@ package ByteInputOutputStream;
 
 import java.io.Serializable;
 
-public class Bus implements Comparable<Bus>, Serializable {
+public class Bus implements Serializable{
     private int id;
     private String providerName;
     private double cost;
@@ -60,17 +60,5 @@ public class Bus implements Comparable<Bus>, Serializable {
 
     public void setRating(float rating) {
         this.rating = rating;
-    }
-
-    @Override
-    public String toString() {
-        return "Bus [id=" + id + ", providerName=" + providerName + ", cost=" + cost + ", rating=" + rating + "]";
-    }
-
-    @Override
-    public int compareTo(Bus o) {
-        Integer i1=this.id;
-        Integer i2=o.id;
-        return i1.compareTo(i2);
     }
 }

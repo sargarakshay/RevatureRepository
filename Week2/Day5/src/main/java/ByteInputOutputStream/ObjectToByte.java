@@ -16,13 +16,13 @@ public class ObjectToByte {
         busList.add(new Bus(111, "Xyz Travels", 1400.22, 4.3f));
 
         try {
-            FileOutputStream fout = new FileOutputStream("E:\\Revature\\RevatureRepository\\Week2\\Day5\\src\\main\\java\\ByteInputOutputStream\\byteCodeOutput\\BusObjectByteCode.ser");
+            FileOutputStream fout = new FileOutputStream("E:\\Revature\\RevatureRepository\\Week2\\Day5\\src\\main\\java\\ByteInputOutputStream\\byteCodeOutput\\BusObjectByteCode1.ser");
 
             ObjectOutputStream oos =new ObjectOutputStream(fout);
 
             oos.writeObject(busList);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         }

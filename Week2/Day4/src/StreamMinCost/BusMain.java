@@ -12,6 +12,7 @@ package StreamMinCost;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class BusMain {
 
@@ -28,6 +29,8 @@ public class BusMain {
 
         double minPrice = busList.stream().filter(e -> e.getProviderName().equals("Xyz Travels")).map(e -> e.getCost()).reduce(Double.MAX_VALUE, (min, price) -> Math.min(min, price));
         double minPrice2 = busList.stream().filter(e -> e.getProviderName().equals("Xyz Travels")).map(e -> e.getCost()).min(Double::compare).get();
+
+
 
         System.out.println("Minimum price : " + minPrice);
         System.out.println("Minimum price : " + minPrice2);

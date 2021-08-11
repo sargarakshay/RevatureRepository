@@ -22,11 +22,7 @@ class JUnitTestingDemoTest extends JUnitTestingDemo{
 
     @Test
     void reverseStringWithEmptyString() {
-        try {
-            reverseString("");
-        } catch (InvalidStringException e) {
-            e.printStackTrace();
-        }
+        reverseString("");
     }
 
     @Test
