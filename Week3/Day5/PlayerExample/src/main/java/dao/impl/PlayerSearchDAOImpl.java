@@ -19,7 +19,7 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
 
     @Override
     public Player searchById(int id) throws BusinessException {
-        Player player = new Player();
+        Player player = null;
         try (Connection connection = MySQLDBConnection.getConnection()) {
 
             String sql = "SELECT p.id, name, age, gender, sportsName, city, contact, t.teamName FROM player p JOIN team t ON p.teamId = t.teamId WHERE p.id = ?";
@@ -28,6 +28,7 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
+                player = new Player();
                 player.setId(id);
                 player.setName(resultSet.getString("name"));
                 player.setGender(resultSet.getString("gender"));
@@ -38,10 +39,12 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
                 Team team = new Team();
                 team.setTeamName(resultSet.getString("teamName"));
                 player.setTeam(team);
+            } else {
+                throw new BusinessException("We couldn't find any matches for " + id + ".\nDouble check your search for any typos or spelling errors or try a different search term.");
             }
         } catch (SQLException | ClassNotFoundException e) {
             log.error(e);
-            throw new BusinessException("We couldn't find any matches for " + id + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            throw new BusinessException("Internal error occurred contact ");
         }
         return player;
     }
@@ -67,10 +70,12 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
                 Team team = new Team();
                 team.setTeamName(resultSet.getString("teamName"));
                 player.setTeam(team);
+            } else {
+                throw new BusinessException("We couldn't find any matches for " + contact + "\nDouble check your search for any typos or spelling errors or try a different search term.");
             }
         } catch (ClassNotFoundException | SQLException e) {
             log.error(e);
-            throw new BusinessException("We couldn't find any matches for " + contact + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            throw new BusinessException("Internal error occurred contact ");
         }
         return player;
     }
@@ -100,9 +105,12 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
 
                 playerList.add(player);
             }
+            if (playerList.size() == 0) {
+                throw new BusinessException("We couldn't find any matches for " + name + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            }
         } catch (ClassNotFoundException | SQLException e) {
             log.error(e);
-            throw new BusinessException("We couldn't find any matches for " + name + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            throw new BusinessException("Internal error occurred contact ");
         }
         return playerList;
     }
@@ -121,7 +129,7 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
                 Team team = new Team();
                 player.setId(resultSet.getInt("id"));
                 player.setName(resultSet.getString("name"));
-                player.setAge(age);
+                player.setAge(resultSet.getInt("age"));
                 player.setSportsName(resultSet.getString("sportsName"));
                 player.setCity(resultSet.getString("city"));
                 player.setContact(resultSet.getLong("contact"));
@@ -132,9 +140,12 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
                 playerList.add(player);
             }
 
+            if (playerList.size() == 0) {
+                throw new BusinessException("We couldn't find any matches for " + age + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            }
         } catch (ClassNotFoundException | SQLException e) {
             log.error(e);
-            throw new BusinessException("We couldn't find any matches for " + age + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            throw new BusinessException("Internal error occurred contact ");
         }
         return playerList;
     }
@@ -162,9 +173,13 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
                 player.setTeam(team);
                 playerList.add(player);
             }
+
+            if (playerList.size() == 0) {
+                throw new BusinessException("We couldn't find any matches for " + gender + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            }
         } catch (ClassNotFoundException | SQLException e) {
             log.error(e);
-            throw new BusinessException("We couldn't find any matches for " + gender + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            throw new BusinessException("Internal error occurred contact ");
         }
         return playerList;
     }
@@ -192,9 +207,13 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
                 player.setTeam(team);
                 playerList.add(player);
             }
+
+            if (playerList.size() == 0) {
+                throw new BusinessException("We couldn't find any matches for " + city + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            }
         } catch (ClassNotFoundException | SQLException e) {
             log.error(e);
-            throw new BusinessException("We couldn't find any matches for " + city + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            throw new BusinessException("Internal error occurred contact ");
         }
         return playerList;
     }
@@ -222,9 +241,13 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
                 player.setTeam(team);
                 playerList.add(player);
             }
+
+            if (playerList.size() == 0) {
+                throw new BusinessException("We couldn't find any matches for " + sportsName + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            }
         } catch (ClassNotFoundException | SQLException e) {
             log.error(e);
-            throw new BusinessException("We couldn't find any matches for " + sportsName + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            throw new BusinessException("Internal error occurred contact ");
         }
         return playerList;
     }
@@ -253,10 +276,13 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
 
                 playerList.add(player);
             }
+
+            if (playerList.size() == 0) {
+                throw new BusinessException("We couldn't find any matches for " + teamName + "\nDouble check your search for any typos or spelling errors or try a different search term.");
+            }
         } catch (ClassNotFoundException | SQLException e) {
             log.error(e);
-            throw new BusinessException("We couldn't find any matches for " + teamName + "\nDouble check your search for any typos or spelling errors or try a different search term.");
-
+            throw new BusinessException("Internal error occurred contact ");
         }
         return playerList;
     }

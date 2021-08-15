@@ -81,8 +81,10 @@ public class PlayerMain {
                                         log.info("\nReturning to Find a Player Menu...");
                                         Thread.sleep(2000);
                                     }
-                                } catch (BusinessException | InterruptedException | NumberFormatException e) {
-                                    log.error(e);
+                                } catch (NumberFormatException ex) {
+                                    log.warn("Player Id should be digit only... Try Again");
+                                } catch (BusinessException | InterruptedException e) {
+                                    log.warn(e.getMessage());
                                     log.info("\nReturning to Find a Player Menu...");
                                 }
                                 break;
@@ -102,7 +104,7 @@ public class PlayerMain {
                                         Thread.sleep(2000);
                                     }
                                 } catch (BusinessException | InterruptedException e) {
-                                    log.error(e);
+                                    log.warn(e.getMessage());
                                     log.info("\nReturning to Find a Player Menu...");
                                 }
                                 break;
@@ -111,7 +113,7 @@ public class PlayerMain {
                                 try {
                                     int age = Integer.parseInt(sc.nextLine());
                                     List<Player> playerList = playerSearchService.searchByAge(age);
-                                    if (playerList.size() != 0) {
+                                    if (playerList != null) {
                                         log.info("Player age : " + age + "  is present database...");
                                         log.info("fetching data....please wait.....");
                                         for (Player player : playerList) {
@@ -122,7 +124,7 @@ public class PlayerMain {
                                         Thread.sleep(2000);
                                     }
                                 } catch (BusinessException | InterruptedException e) {
-                                    log.error(e);
+                                    log.warn(e.getMessage());
                                     log.info("\nReturning to Find a Player Menu...");
                                 }
                                 break;
@@ -142,7 +144,7 @@ public class PlayerMain {
                                         Thread.sleep(2000);
                                     }
                                 } catch (BusinessException | InterruptedException e) {
-                                    log.error(e);
+                                    log.warn(e.getMessage());
                                     log.info("\nReturning to Find a Player Menu...");
                                 }
                                 break;
@@ -162,7 +164,7 @@ public class PlayerMain {
                                         Thread.sleep(2000);
                                     }
                                 } catch (BusinessException | InterruptedException e) {
-                                    log.error(e);
+                                    log.warn(e.getMessage());
                                     log.info("\nReturning to Find a Player Menu...");
                                 }
                                 break;
@@ -182,7 +184,7 @@ public class PlayerMain {
                                         Thread.sleep(2000);
                                     }
                                 } catch (BusinessException | InterruptedException e) {
-                                    log.error(e);
+                                    log.warn(e.getMessage());
                                     log.info("\nReturning to Find a Player Menu...");
                                 }
                                 break;
@@ -200,7 +202,7 @@ public class PlayerMain {
                                         Thread.sleep(2000);
                                     }
                                 } catch (BusinessException | InterruptedException e) {
-                                    log.error(e);
+                                    log.warn(e.getMessage());
                                     log.info("\nReturning to Find a Player Menu...");
                                 }
                                 break;
@@ -220,7 +222,7 @@ public class PlayerMain {
                                         Thread.sleep(2000);
                                     }
                                 } catch (BusinessException | InterruptedException e) {
-                                    log.error(e);
+                                    log.warn(e.getMessage());
                                     log.info("\nReturning to Find a Player Menu...");
                                 }
                                 break;
@@ -229,7 +231,7 @@ public class PlayerMain {
                                 try {
                                     Thread.sleep(2000);
                                 } catch (InterruptedException e) {
-                                    log.error(e);
+                                    log.warn(e.getMessage());
                                 }
                                 break;
                             default:
@@ -242,7 +244,7 @@ public class PlayerMain {
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
-                        log.error(e);
+                        log.error(e.getMessage());
                     }
                     log.info("See you soon....Bye Bye!!!");
                     break;

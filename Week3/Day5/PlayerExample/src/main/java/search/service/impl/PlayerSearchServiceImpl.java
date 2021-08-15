@@ -16,8 +16,8 @@ public class PlayerSearchServiceImpl implements PlayerSearchService {
     public Player searchById(int id) throws BusinessException {
         Player player = null;
 
-        if (id < 100 || id > 1000) {
-            throw new BusinessException("Please enter a valid ID to search a Player");
+        if (id < 100 || id > 1000)  {
+            throw new BusinessException("Enter a valid ID to search a Player.");
         } else {
             player = playerSearchDAO.searchById(id);
         }
@@ -28,7 +28,7 @@ public class PlayerSearchServiceImpl implements PlayerSearchService {
     public Player searchByContact(long contact) throws BusinessException {
         Player player = null;
         if (contact < 1) {
-            throw new BusinessException("Please enter a valid contact to search a Player");
+            throw new BusinessException("Enter a valid contact number to search a Player.");
         } else {
             player = playerSearchDAO.searchByContact(contact);
         }
@@ -38,10 +38,10 @@ public class PlayerSearchServiceImpl implements PlayerSearchService {
     @Override
     public List<Player> searchByName(String name) throws BusinessException {
         List<Player> playerList = null;
-        if (name.length() == 0 && name.matches("[a-zA-Z]{2,10}")) {
-            throw new BusinessException("Please enter a valid name to search a Player");
-        } else {
+        if (name.length() != 0 && name.matches("[a-zA-Z]{2,10}")) {
             playerList = playerSearchDAO.searchByName(name);
+        } else {
+            throw new BusinessException("Enter a valid name to search a Player.");
         }
         return playerList;
     }
@@ -50,7 +50,7 @@ public class PlayerSearchServiceImpl implements PlayerSearchService {
     public List<Player> searchByAge(int age) throws BusinessException {
         List<Player> playerList = null;
         if (age <= 0 || age >= 100) {
-            throw new BusinessException("Please enter a valid Age to search a Player");
+            throw new BusinessException("Enter a valid age to search a Player.");
         } else {
             playerList = playerSearchDAO.searchByAge(age);
         }
@@ -63,7 +63,7 @@ public class PlayerSearchServiceImpl implements PlayerSearchService {
         if (gender.matches("[a-zA-Z]")) {
             playerList = playerSearchDAO.searchByGender(gender);
         } else {
-            throw new BusinessException("Please enter a valid Age to search a Player");
+            throw new BusinessException("Enter a valid gender to search a Player.");
         }
         return playerList;
     }
@@ -74,7 +74,7 @@ public class PlayerSearchServiceImpl implements PlayerSearchService {
         if (city.length() != 0 && city.matches("[a-zA-Z]{2,10}")) {
             playerList = playerSearchDAO.searchByCity(city);
         } else {
-            throw new BusinessException("Please enter a valid city to search a Player");
+            throw new BusinessException("Enter a valid city to search a Player.");
         }
         return playerList;
     }
@@ -83,9 +83,9 @@ public class PlayerSearchServiceImpl implements PlayerSearchService {
     public List<Player> searchBySportsName(String sportsName) throws BusinessException {
         List<Player> playerList;
         if (sportsName.length() != 0 && sportsName.matches("[a-zA-Z]{2,10}")) {
-            playerList = playerSearchDAO.searchByTeamName(sportsName);
+            playerList = playerSearchDAO.searchBySportsName(sportsName);
         } else {
-            throw new BusinessException("Please enter a valid Sports Name to search a Player");
+            throw new BusinessException("Enter a valid sports name to search a Player.");
         }
         return playerList;
     }
@@ -96,7 +96,7 @@ public class PlayerSearchServiceImpl implements PlayerSearchService {
         if (teamName.length() != 0 && teamName.matches("[a-zA-Z]{2,10}")) {
             playerList = playerSearchDAO.searchByTeamName(teamName);
         } else {
-            throw new BusinessException("Please enter a valid Team Name to search a Player");
+            throw new BusinessException("Enter a valid team name to search a Player.");
         }
         return playerList;
     }
