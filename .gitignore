@@ -5,6 +5,8 @@
 */*/target
 
 # User-specific stuff
+Week3/Day5/PlayerExample/.idea
+Week3/Day5/PlayerExample/target
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
