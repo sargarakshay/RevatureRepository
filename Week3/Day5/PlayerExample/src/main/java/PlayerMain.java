@@ -1,8 +1,11 @@
 import dao.exception.BusinessException;
 import model.Player;
+import model.Team;
 import org.apache.log4j.Logger;
-import search.service.PlayerSearchService;
-import search.service.impl.PlayerSearchServiceImpl;
+import service.player.PlayerMainFunctionality;
+import service.player.impl.PlayerMainFunctionalityImpl;
+import service.search.PlayerSearchService;
+import service.search.impl.PlayerSearchServiceImpl;
 
 import java.util.List;
 import java.util.Scanner;
@@ -12,6 +15,7 @@ public class PlayerMain {
 
     public static void main(String[] args) {
         PlayerSearchService playerSearchService = new PlayerSearchServiceImpl();
+        PlayerMainFunctionality playerMainFunctionality = new PlayerMainFunctionalityImpl();
 
         Scanner sc = new Scanner(System.in);
         int ch = 0;
@@ -38,7 +42,77 @@ public class PlayerMain {
 
             switch (ch) {
                 case 1:
-                    log.info("Working On It 1");
+                    try {
+                        Player player = new Player();
+                        log.info("Enter Player details one-by-one...");
+                        log.info("Enter Player ID : ");
+                        player.setId(Integer.parseInt(sc.nextLine()));
+                        log.info("Enter Player name : ");
+                        player.setName(sc.nextLine());
+                        log.info("Enter Player age : ");
+                        player.setAge(Integer.parseInt(sc.nextLine()));
+                        log.info("Enter Player gender : ");
+                        player.setGender(sc.nextLine());
+                        log.info("Enter Player city : ");
+                        player.setCity(sc.nextLine());
+                        log.info("Enter Player sports name : ");
+                        player.setSportsName(sc.nextLine());
+                        log.info("Enter Player contact : ");
+                        player.setContact(Long.parseLong(sc.nextLine()));
+                        int teamMenuOption;
+                        Team team = new Team();
+
+                        log.info("Enter Team Id : ");
+                        log.info("-----------------------------");
+                        log.info("       IPL Team's List");
+                        log.info("-----------------------------");
+                        log.info("1) MI");
+                        log.info("2) RCB");
+                        log.info("3) SRH");
+                        log.info("4) KKR");
+                        log.info("5) CSK");
+                        log.info("-----------------------------");
+                        log.info("Select player team : ");
+                        teamMenuOption = Integer.parseInt(sc.nextLine());
+                        switch (teamMenuOption) {
+                            case 1:
+                                team.setTeamId(1);
+                                team.setTeamName("MI");
+                                break;
+                            case 2:
+                                team.setTeamId(2);
+                                team.setTeamName("RCB");
+                                break;
+                            case 3:
+                                team.setTeamId(3);
+                                team.setTeamName("SRH");
+                                break;
+                            case 4:
+                                team.setTeamId(4);
+                                team.setTeamName("KKR");
+                                break;
+                            case 5:
+                                team.setTeamId(5);
+                                team.setTeamName("CSK");
+                            default:
+                                log.info("Invalid Team Id...");
+                                break;
+                        }
+                        player.setTeam(team);
+
+                        int isSucessfull = playerMainFunctionality.createPlayer(player);
+                        if (isSucessfull == 1) {
+                            log.info("Player created successfully!!!");
+                            log.info("fetching data....please wait.....");
+                            Thread.sleep(2000);
+                            log.info(player);
+                            log.info("\nReturning to Main Menu...");
+                            Thread.sleep(2000);
+                        }
+                    } catch (BusinessException | InterruptedException e) {
+                        log.warn(e.getMessage());
+                        log.info("\nReturning to Main Menu...");
+                    }
                     break;
                 case 2:
                     log.info("Working On It 2");
@@ -76,6 +150,7 @@ public class PlayerMain {
                                     Player player = playerSearchService.searchById(id);
                                     if (player != null) {
                                         log.info("Player with " + id + " found successfully");
+                                        log.info("fetching data....please wait.....");
                                         Thread.sleep(2000);
                                         log.info(player);
                                         log.info("\nReturning to Find a Player Menu...");
@@ -242,7 +317,10 @@ public class PlayerMain {
 
                 case 6:
                     try {
-                        Thread.sleep(2000);
+                        log.info("Saving Data....");
+                        Thread.sleep(1500);
+                        log.info("Data saved successfully....");
+                        Thread.sleep(1500);
                     } catch (InterruptedException e) {
                         log.error(e.getMessage());
                     }

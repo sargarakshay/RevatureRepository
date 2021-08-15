@@ -1,11 +1,13 @@
 package dao;
 
+import dao.exception.BusinessException;
 import model.Player;
 
 import java.util.List;
 
 public interface PlayerDAO {
-    public List<Player> getAllPlayers();
-    public int deletePlayer(int id);
-
+    int createPlayer(Player player) throws BusinessException;
+    int updatePlayer(int id) throws BusinessException;
+    int deletePlayer(int id) throws BusinessException;
+    List<Player> getAllPlayers() throws BusinessException;
 }
