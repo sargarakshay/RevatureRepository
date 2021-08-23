@@ -16,6 +16,7 @@ public class MySQLDBConnection {
         String username = "root";
         String password = "Akshay@1710290";
         connection = DriverManager.getConnection(url, username, password);
+
         return connection;
     }
 }

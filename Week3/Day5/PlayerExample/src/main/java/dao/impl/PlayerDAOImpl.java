@@ -16,7 +16,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 
     @Override
     public int createPlayer(Player player) throws BusinessException {
-        int isSuccesfull = 0;
+        int isSuccesfull;
         try(Connection connection = MySQLDBConnection.getConnection()) {
             String sql = "INSERT INTO player(id, name, age, gender, city, sportsName, contact, teamId) VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

@@ -19,7 +19,7 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
 
     @Override
     public Player searchById(int id) throws BusinessException {
-        Player player = null;
+        Player player;
         try (Connection connection = MySQLDBConnection.getConnection()) {
 
             String sql = "SELECT p.id, name, age, gender, sportsName, city, contact, t.teamName FROM player p JOIN team t ON p.teamId = t.teamId WHERE p.id = ?";
@@ -51,7 +51,7 @@ public class PlayerSearchDAOImpl implements PlayerSearchDAO {
 
     @Override
     public Player searchByContact(long contact) throws BusinessException {
-        Player player = null;
+        Player player;
         try (Connection connection = MySQLDBConnection.getConnection()) {
             String sql = "SELECT p.id, name, age, gender, sportsName, city, contact, t.teamName FROM player p JOIN team t ON p.teamId = t.teamId WHERE p.contact = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
