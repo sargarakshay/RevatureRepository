@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Player</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    body {
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url("./img/backgroundMain.jpg") no-repeat;
+        background-size: cover;
+    }
+
+    .container {
+        margin: 100px;
+    }
+
+    .form-signin {
+        max-width: 360px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 15px 40px 30px;
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+    }
+
+
+    .form-signin .form-signin-heading {
+        margin-bottom: 30px;
+    }
+
+    .form-signin input {
+        margin-bottom: 20px;
+    }
+
+    .form-signin .form-control {
+        padding: 10px;
+    }
+
+    .btn,
+    nav {
+        background-color: #19398a;
+    }
+</style>
+
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="./img/iplLogo.png" height="50" class="d-inline-block align-top " alt="">
+        </a>
+    </nav>
+    <div class="container">
+        <form class="form-signin">
+            <h2 class="form-signin-heading text-center">Login</h2>
+            <input type="email" class="form-control" id="username" name="username" placeholder="Email Address"
+                required="" autofocus />
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                required="" />
+            <label class="checkbox">
+                <input type="checkbox" name="rememberMe" id="rememberMe" value="remeber-me">
+                Remember Me
+            </label>
+            <button class="btn btn-lg btn-primary btn-block">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>

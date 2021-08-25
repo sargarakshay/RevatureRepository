@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Player</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    body {
+        font-family: ;
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url("./img/backgroundMain.jpg") no-repeat;
+        background-size: cover;
+
+    }
+
+    .container-fluid {
+        margin: 20px;
+    }
+
+    .form-signin {
+        max-width: 360px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 15px 40px 30px;
+        border-radius: 10px;
+
+    }
+
+    .form-signin .form-signin-heading,
+    .checkbox {
+        margin-bottom: 20px;
+    }
+
+    .form-signin .form-control {
+        margin-bottom: 10px;
+    }
+
+    .nav-item {
+        color: #fff;
+    }
+
+    .navbar,
+    .btn-register {
+        background-color: #19398a;
+    }
+
+    .navbar-nav a::hover {
+        border-bottom: 2 solid yellow;
+
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg justify-content-between">
+        <a class="navbar-brand" href="#">
+            <img src="./img/iplLogo.png" height="50" class="d-inline-block align-top " alt="">
+        </a>
+        <form class="form-inline">
+            <button class="btn btn-outline-primary mr-sm-2" type="submit">Teams</button>
+            <button class="btn btn-outline-primary mr-sm-2" type="submit">Login</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Register</button>
+        </form>
+    </nav>
+    <div class="container-fluid">
+        <form class="form-signin">
+            <h2 class="form-signin-heading text-center">Register</h2>
+            <input class="form-control" type="text" name="name" id="name" placeholder="Name" autofocus required />
+            <input class="form-control" type="email" name="email" id="email" placeholder="Email Address" required />
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password" required />
+            <input class="form-control" type="text" name="age" id="age" placeholder="City" required />
+            <input class="form-control" type="text" name="contact" id="contact" placeholder="Contact" required />
+            <div class="form-group">
+                <label for="team">Team</label>
+                <select id="team" class="form-control" name="">
+                    <option>RCB - Royal Challengers Bangalore</option>
+                    <option>MI - Mumbai Indians</option>
+                    <option>CSK - Chennai Super Kings</option>
+                    <option>DC - Delhi Capitals</option>
+                    <option>KKR - Kolkata Knight Riders</option>
+                    <option>PBKS - Punjab Kings</option>
+                    <option></option>RR - Rajasthan Royals</option>
+                </select>
+            </div>
+            <label class="checkbox">
+                <input type="checkbox" name="terms" id="terms">
+                Accept Terms and Conditions.
+            </label>
+            <button class="btn btn-primary btn-lg btn-block btn-register">Register</button>
+        </form>
+    </div>
+</body>
+
+</html>
