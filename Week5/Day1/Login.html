@@ -2,19 +2,13 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Player</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <style type="text/css">
-    body {
-        background:
-            linear-gradient(rgba(0, 0, 0, 0.5),
-                rgba(0, 0, 0, 0.5)),
-            url("./img/backgroundMain.jpg") no-repeat;
-        background-size: cover;
-    }
-
     .container {
         margin: 100px;
     }
@@ -45,13 +39,32 @@
     nav {
         background-color: #19398a;
     }
+
+    a {
+        color: #fff;
+    }
+
+    .navbar,
+    .btn-register {
+        background-color: #19398a;
+    }
+
+    .form-inline .btn {
+        color: #19398a;
+        background: white;
+    }
 </style>
 
 <body>
-    <nav class="navbar">
-        <a class="navbar-brand" href="#">
+    <nav class="navbar navbar-dark navbar-expand-lg justify-content-between">
+        <a class="navbar-brand" href="./index.html">
             <img src="./img/iplLogo.png" height="50" class="d-inline-block align-top " alt="">
         </a>
+        <form class="form-inline">
+            <a href="./index.html"><button class="btn btn-primary mr-sm-3" type="submit">Teams</button></a>
+            <a href="./Login.html"><button class="btn btn-primary mr-sm-3" type="submit">Login</button></a>
+            <a href="./Register.html"><button class="btn btn-primary my-2 my-sm-0" type="submit">Register</button></a>
+        </form>
     </nav>
     <div class="container">
         <form class="form-signin">

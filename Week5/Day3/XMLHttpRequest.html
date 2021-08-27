@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <form class="form">
+        <div class="container">
+            <div class="form-group">
+                <label for="countryInput">Country Name</label>
+                <input type="text" class="form-control" id="countryInput">
+            </div>
+            <div id="country-container" class="row"></div>
+        </div>
+    </form>
+    <script>
+        let countryContainer = document.getElementById("country-container");
+        let countryInput = document.getElementById("countryInput");
+
+        countryInput.addEventListener("keyup", function () {
+            let xhr = new XMLHttpRequest();
+            xhr.addEventListener("readystatechange", function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    try {
+                        let html = "";
+                        let countryData = JSON.parse(xhr.responseText);
+                        for (let i = 0; i < countryData.length; i++) {
+                            html += `<div class="column"> <div class="card" id="countryCard">
+                                        <img src="${countryData[i].flag}" class="card-img-top" id="countryImage">
+                                        <div class="card-body">
+                                            <h5 class="card-title" id="countryName">${countryData[i].name}</h5>
+                                            <p class="card-text">Capital : <span style='color: green;'>${countryData[i].capital}</span></p>
+                                            <p class="card-text">Languages : `;
+
+                            for (let j = 0; j < countryData[i].languages.length; j++) {
+                                html += `<span style='color: green;'> ${countryData[i].languages[j].name} | <span>`;
+                            }
+
+                            html += `</p>
+                            </div> 
+                        </div>
+                    </div>`;
+
+                            countryContainer.innerHTML = html;
+                        }
+                    } catch (e) {
+                        console.warn('There was an error in the JSON. Could not parse!')
+                    }
+                } else {
+                    console.warn("Did not receive 200 OK from response!");
+                }
+            });
+            xhr.open("GET", "https://restcountries.eu/rest/v2/name/" + countryInput.value);
+            xhr.send();
+        });
+    </script>
+</body>
+
+</html>

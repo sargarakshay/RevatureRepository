@@ -4,19 +4,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Player</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <style type="text/css">
-    body {
-        background:
-            linear-gradient(rgba(0, 0, 0, 0.5),
-                rgba(0, 0, 0, 0.5)),
-            url("./img/backgroundMain.jpg") no-repeat;
-        background-size: cover;
-
-    }
-
     .container-fluid {
         margin: 20px;
     }
@@ -48,9 +40,9 @@
         background-color: #19398a;
     }
 
-    .navbar-nav a::hover {
-        border-bottom: 2 solid yellow;
-
+    .form-inline .btn {
+        color: #19398a;
+        background: white;
     }
 </style>
 
@@ -60,9 +52,9 @@
             <img src="./img/iplLogo.png" height="50" class="d-inline-block align-top " alt="">
         </a>
         <form class="form-inline">
-            <button class="btn btn-outline-primary mr-sm-2" type="submit">Teams</button>
-            <button class="btn btn-outline-primary mr-sm-2" type="submit">Login</button>
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Register</button>
+            <a href="./index.html"></a><button class="btn btn-primary mr-sm-3" type="submit">Teams</button></a>
+            <a href="./login.html"><button class="btn btn-primary mr-sm-3" type="submit">Login</button></a>
+            <a href="./register.html"><button class="btn btn-primary my-2 my-sm-0" type="submit">Register</button></a>
         </form>
     </nav>
     <div class="container-fluid">
