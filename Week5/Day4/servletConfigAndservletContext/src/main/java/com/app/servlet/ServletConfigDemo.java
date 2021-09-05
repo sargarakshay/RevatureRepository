@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "ServletConfigDemo", value = "/ServletConfigDemo")
 public class ServletConfigDemo extends HttpServlet {
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         ServletConfig config = getServletConfig();
