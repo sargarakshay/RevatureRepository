@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Player_1 = require("./Player");
+var Team_1 = require("./Team");
+var player = new Player_1.Player();
+var team = new Team_1.Team();
+team.teamId = 1;
+team.teamName = "INDIA";
+player.personId = 1;
+player.personName = "Sachin";
+player.personAge = 44;
+player.personCity = "Mumbai";
+player.playerTeam = team;
+player.getPlayerDetails(player);

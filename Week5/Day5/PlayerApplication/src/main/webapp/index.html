@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player : Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form class="form" method="post">
+        <div class="form-group">
+        <label for="playerName"> Player Name
+            <input type="text" name="playerName" id="playerName" class="form-control"  />
+        </label>
+        </div>
+        <div class="form-group">
+            <label for="playerAge"> Player Age
+                <input type="number" name="playerAge" id="playerAge" class="form-control" />
+            </label>
+        </div>
+        <div class="radio">
+            <input type="radio" value="M" name='playerGender' id='male' />
+            <label for="male">Male</label>
+        </div>
+        <div class="radio">
+            <input type="radio" value="F" name='playerGender' id='female' />
+            <label for="female">Female</label>
+        </div>
+        <div class="form-group">
+            <label for="playerTeamId">Choose a Team:</label>
+            <select id="playerTeamId" name="playerTeamId">
+                <option value="1">Royal Challengers Bangalore</option>
+                <option value="2">Chennai Super Kings</option>
+                <option value="3">Mumbai Indians</option>
+                <option value="4">Delhi Capitals</option>
+                <option value="5">Rajasthan Royals</option>
+                <option value="6">Punjab Kings</option>
+                <option value="7">Kolkata Knight Riders</option>
+                <option value="8">Sunrisers Hyderabad</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" id="submitPlayerForm" class="btn btn-primary">Submit Player Details</button>
+        </div>
+    </form>
+    <div class="container" id="playerDataTable"></div>
+</div>
+<script type="text/javascript">
+    let playerName = document.getElementById("playerName");
+    let playerAge = document.getElementById("playerAge");
+    let playerGender = document.getElementsByName("playerGender");
+    let playerTeamId = document.getElementById("playerTeamId")
+    let submitPlayerForm = document.getElementById("submitPlayerForm");
+    let playerDataTable = document.getElementById("playerDataTable");
+
+    playerAge.addEventListener("keyup", viewPlayers);
+
+    async function viewPlayers() {
+        try {
+            let playerResponse = await fetch("http://localhost:8080/playerapplication/rest/players");
+            if (playerResponse.status === 200) {
+                let playerData = playerResponse.json();
+                let html = "";
+                html += `<table class='table'>`;
+                for (let i = 0; i < playerData.length; i++) {
+                    html += `<tr>" +
+                        "<td>${playerData[i].playerId}</td>" +
+                        "<td>${playerData[i].playerName}</td>" +
+                        "<td>${playerData[i].playerGender}</td>" +
+                        "<td>${playerData[i].playerTeamId}</td>" +
+                        "</tr>`;
+                }
+                html += `</table>`;
+
+                playerDataTable.innerHTML = html;
+            } else {
+                console.warn('Data is not 200 OK!');
+            }
+        } catch (e) {
+            console.warn('There was an error in the JSON. Could not parse!');
+        }
+        //fetch('http://localhost:8080/playerapplication/rest/players').then(response => response.json()).then(data => console.log(data));
+    }
+</script>
+</body>
+</html>

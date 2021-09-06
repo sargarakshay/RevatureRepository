@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form class="form-signin" method="post" action="certificate-details">
+        <h1 class="form-sign-heading text-center">Certificate Details From</h1>
+        <div class="form-group">
+            <label for="certificateName"> Certificate Name
+                <input type="text" class="form-control" name="certificateName" id="certificateName" required />
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="certificateValidity"> Certificate Validity
+                <input type="number" class="form-control" name="certificateValidity" id="certificateValidity" required />
+            </label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

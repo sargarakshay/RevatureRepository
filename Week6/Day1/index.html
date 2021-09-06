@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Login Page : Home</title>
+</head>
+<style class="text/css">
+    body {
+        background-color: #eee;
+    }
+
+    .form-signin {
+        max-width: 360px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 15px 40px 30px;
+        border-radius: 10px;
+    }
+
+    .container {
+        margin: 50px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <form name="formValidator" class="form-signin" onsubmit="return registrationFormValidator(formValidator)">
+            <h3 class="form-signin-heading text-center">Registration Form</h3>
+            <br>
+            <div class="form-group">
+                <label for="usernameInput">Username</label>
+                <input type="text" class="form-control" id="usernameInput" placeholder="Enter Username">
+                <small id="usernameValidation" style="color: red;"></small>
+            </div>
+            <div class="form-group">
+                <label for="passwordInput">Password</label>
+                <input type="text" class="form-control" id="passwordInput" placeholder="Password">
+                <small id="passwordValidation" style="color: red;"></small>
+            </div>
+            <div class="form-group">
+                <label for="ageInput">Age</label>
+                <input type="number" class="form-control" id="ageInput" placeholder="Age">
+                <small id="ageValidation" style="color: red;"></small>
+            </div>
+            <div class="form-group">
+                <label for="ageInput">Gender</label>
+                <div class="form-inline">
+                    <input type="radio" id="male" name="genderInput" value="male" checked>
+                    <label for="male">&nbsp;Male</label>&nbsp;&nbsp;
+                    <input type="radio" id="female" name="genderInput" value="female">
+                    <label for="female">&nbsp;Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contactInput">Contact</label>
+                <input type="number" class="form-control" id="contactInput" placeholder="Contact">
+                <small id="contactValidation" style="color: red;"></small>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+
+        function registrationFormValidator(formValidator) {
+            if (formValidator.usernameInput.value == "") {
+                document.getElementById("usernameValidation").innerText = "Please enter a valid username";
+                return false;
+            } else {
+                document.getElementById("usernameValidation").innerText = "";
+            }
+
+            if (formValidator.passwordInput.value == "") {
+                document.getElementById("passwordValidation").innerText = "Please enter a valid password";
+                return false;
+            } else {
+                document.getElementById("passwordValidation").innerText = "";
+            }
+
+            if (formValidator.ageInput.value == "" || formValidator.ageInput.value < 0) {
+                document.getElementById("ageValidation").innerText = "Please enter a valid age";
+                return false;
+            } else {
+                document.getElementById("ageValidation").innerText = "";
+            }
+
+            if (formValidator.contactInput.value == "" || formValidator.contactInput.value < 0) {
+                document.getElementById("contactValidation").innerText = "Please enter a valid contact number";
+                return false;
+            } else {
+                document.getElementById("contactValidation").innerText = "";
+                return true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

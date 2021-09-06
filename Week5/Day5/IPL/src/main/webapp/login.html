@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Player</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    body {
+        background:
+                linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+                url("https://wallpapercave.com/wp/wp4059913.jpg") no-repeat;
+        background-size: cover;
+
+    }
+
+    .container {
+        margin: 80px;
+    }
+
+    .form-signin {
+        max-width: 360px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 15px 40px 30px;
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+    }
+
+
+    .form-signin .form-signin-heading {
+        margin-bottom: 30px;
+    }
+
+    .form-signin input {
+        margin-bottom: 20px;
+    }
+
+    .form-signin .form-control {
+        padding: 10px;
+    }
+
+    .btn,
+    nav {
+        background-color: #19398a;
+    }
+
+    a {
+        color: #fff;
+    }
+
+    .navbar{
+        background-color: #19398a;
+    }
+
+    .form-inline .btn {
+        color: #19398a;
+        background: white;
+    }
+</style>
+
+<body>
+<nav class="navbar navbar-dark navbar-expand-lg justify-content-between">
+    <a class="navbar-brand" href="#">
+        <img src="https://static.india.com/wp-content/uploads/2020/08/IPL-Logo.jpg?impolicy=Medium_Resize&w=1200&h=800 " height="50" class="d-inline-block align-top " alt="">
+    </a>
+    <form class="form-inline">
+        <a href="#"><button class="btn btn-primary mr-sm-3" type="submit">Teams</button></a>
+        <a href="#"><button class="btn btn-primary mr-sm-3" type="submit">Login</button></a>
+        <a href="#"><button class="btn btn-primary my-2 my-sm-0" type="submit">Register</button></a>
+    </form>
+</nav>
+<div class="container">
+    <form class="form-signin" action="login" method="post">
+        <h2 class="form-signin-heading text-center">Login</h2>
+        <input type="text" class="form-control" id="username" name="customerUsername" placeholder="Email Address"
+                                             required="" autofocus />
+        <input type="text" class="form-control" id="password" name="customerPassword" placeholder="Password"
+                                             required="" />
+        <label class="checkbox">
+            <input type="checkbox" name="rememberMe" id="rememberMe" value="remeber-me">
+            Remember Me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>
