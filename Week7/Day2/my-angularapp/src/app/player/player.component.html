@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="column">
+        <div class="form-group">
+            <label for="">Player ID</label>
+            <input type="text" class="form-control" placeholder="Enter Player ID" [(ngModel)]="player.playerId">
+        </div>
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" class="form-control" placeholder="Enter Player Name" [(ngModel)]="player.playerName">
+        </div>
+        <div class="form-group">
+            <label for="">Age</label>
+            <input type="text" class="form-control" placeholder="Enter Player Name" [(ngModel)]="player.playerAge">
+        </div>
+        <div class="form-group">
+            <label for="">Image URL</label>
+            <input type="text" class="form-control" placeholder="Enter Player Avtar URL"
+                [(ngModel)]="player.playerAvtar">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="savePlayerData()">Submit Player</button>
+        &nbsp;
+        <button *ngIf="flag" type="submit" class="btn btn-danger" (click)="deletePlayerData()">Delete Player</button>
+        <br>
+    </div>
+
+    <div class="column">
+        <table *ngIf="flag" class="table table-striped table-inverse">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Avtar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of playerList">
+                    <td>{{p.playerId}}</td>
+                    <td>{{p.playerName}}</td>
+                    <td>{{p.playerAge}}</td>
+                    <td><img [src]="p.playerAvtar" width="100px" alt=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div *ngIf="flag" class="container">
+    <h3>Delete Player</h3>
+    <br>
+    <div class="form-group">
+        <label for="">Player ID To Delete</label>
+        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""
+            [(ngModel)]="deleteId">
+    </div>
+    <button type="submit" class="btn btn-danger" (click)="removePlayerById()">Delete Player </button>
+</div>
