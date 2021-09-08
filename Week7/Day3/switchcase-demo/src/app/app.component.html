@@ -1,0 +1,19 @@
+<div class="container">
+  <div class='card'>
+    <div class='card-header'>
+      ngSwitch Example
+    </div>
+    <div class="card-body">
+      Input string : <input type='text' [(ngModel)]="num" class="form-control" />
+      <br>
+      <div [ngSwitch]="num">
+        <div *ngSwitchCase="'1'">One</div>
+        <div *ngSwitchCase="'2'">Two</div>
+        <div *ngSwitchCase="'3'">Three</div>
+        <div *ngSwitchCase="'4'">Four</div>
+        <div *ngSwitchCase="'5'">Five</div>
+        <div *ngSwitchDefault>This is Default</div>
+      </div>
+    </div>
+  </div>
+</div>

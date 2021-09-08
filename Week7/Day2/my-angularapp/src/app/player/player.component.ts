@@ -11,15 +11,17 @@ export class PlayerComponent{
   player:Player;
   flag:boolean;
   deleteId:number;
+  playerCount:number;
 
   constructor(){
     this.playerList = [];
     this.player = new Player();
     this.flag = false;
+    this.playerCount = 0;
   }
 
-
   savePlayerData() {
+    this.player.playerId = ++this.playerCount;
     this.playerList.push(this.player);
     this.player = new Player();
     console.log(this.playerList);
@@ -36,9 +38,8 @@ export class PlayerComponent{
   removePlayerById() {
     console.log(this.deleteId);
     for(var i = 0; i < this.playerList.length; i++) {
-      if(this.playerList[i].playerId === this.deleteId) {
+      if(this.playerList[i].playerId == this.deleteId) {
         this.playerList.splice(i,1);
-        this.deleteId = 0;
       }
     }
     

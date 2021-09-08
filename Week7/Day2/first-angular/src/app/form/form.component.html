@@ -1,0 +1,11 @@
+<div class="container">
+    <h1 class="text-center">Angular Reactive Forms</h1>
+    <br>
+    <h3 class="text-center">Single Form Control</h3>
+    <label for="name">Name: </label>
+    <input id="name" type="text" [formControl]="name" class="form-control">
+    <br>
+    <button class="btn btn-primary" (click)="updateName()">Submit</button>
+    <br>
+    <p>Value: {{ name.value }}</p>
+</div>
