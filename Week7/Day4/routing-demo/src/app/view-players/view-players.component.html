@@ -1,0 +1,22 @@
+<table *ngIf="flag" class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Avtar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of playerList">
+            <th scope="row">{{player.playerId}}</th>
+            <td>{{player.playerName}}</td>
+            <td>{{player.playerAge}}</td>
+            <td><img [src]="player.playerAvtar" height="150px" /></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="!flag" class="container">
+    <h1 class="text-center" style="color: tomato;">Oops!!! You don't have any players, please add one to view :)</h1>
+</div>

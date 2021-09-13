@@ -1,0 +1,12 @@
+.container {
+ margin: 50px;
+ background: white;
+ padding: 50px;   
+ border-radius: 20px;
+ 
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,10 @@
+.container {
+	margin-top: 50px;
+}
+
+.container button {
+	display: flex;
+	justify-content: center;
+}
+
+

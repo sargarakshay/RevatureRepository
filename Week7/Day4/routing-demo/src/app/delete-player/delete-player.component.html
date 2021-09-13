@@ -1,0 +1,11 @@
+<form>
+    <div class="form-group">
+        <label for="deletePlayerId">Player ID</label>
+        <input *ngIf="flag" type="text" name="deletePlayerId" class="form-control"
+            placeholder="Enter Id delete a Player" [(ngModel)]="playerDeleteId">
+        <input *ngIf="!flag" type="text" name="deletePlayerId" class="form-control"
+            placeholder="Enter Id delete a Player" disabled>
+    </div>
+    <button *ngIf="flag" type="submit" class="btn btn-danger" (click)="deletePlayerById()">Delete Player</button>
+    <button *ngIf="!flag" type="submit" class="btn btn-danger" disabled>Delete Player</button>
+</form>

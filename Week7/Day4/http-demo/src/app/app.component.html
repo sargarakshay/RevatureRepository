@@ -1,0 +1,11 @@
+<div class="container">
+  <button *ngIf="flag" type="submit" routerLinker="/pokemons" class="btn btn-warning" (click)="getAllPokemons()">Get All
+    Pokemons</button>
+  <button *ngIf="!flag" type="submit" routerLinker="/pokemons" class="btn btn-warning" disabled>Get All
+    Pokemons</button>
+</div>
+<br>
+
+<div class="poke-container">
+  <router-outlet></router-outlet>
+</div>

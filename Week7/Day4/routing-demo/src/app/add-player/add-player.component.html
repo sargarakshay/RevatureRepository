@@ -1,0 +1,15 @@
+<form>
+    <div class="form-group">
+        <label>Player Name</label>
+        <input type=" text" class="form-control" [(ngModel)]="player.playerName" name="playerName" />
+    </div>
+    <div class="form-group">
+        <label>Player Age</label>
+        <input type=" number" class="form-control" [(ngModel)]="player.playerAge" name="playerAge" />
+    </div>
+    <div class="form-group">
+        <label for="playerAvtar">Player Avtar URL</label>
+        <input type=" text" class="form-control" [(ngModel)]="player.playerAvtar" name="playerAvtar" />
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addPlayer()">Add Player</button>
+</form>
