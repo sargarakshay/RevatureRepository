@@ -1,0 +1,28 @@
+.card img {
+    width: 200px;
+    height: 200px;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+.student-id {
+  background: rgb(235, 225, 225);
+  border-radius: 30px;
+  margin: 10px 50px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.card {
+    padding: 16px;
+    text-align: center;
+    margin: 10px;
+  }

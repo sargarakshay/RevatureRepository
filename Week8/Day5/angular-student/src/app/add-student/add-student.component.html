@@ -1,0 +1,28 @@
+<form class="form">
+    <div class="form-group">
+        <label>Student Name</label>
+        <input type="text" class="form-control" placeholder="Enter Student Name" [(ngModel)]="student.studentName"
+            name="studentName" required />
+    </div>
+    <div class="form-group">
+        <label>Student Age</label>
+        <input type="number" class="form-control" placeholder="Enter Student Age" [(ngModel)]="student.studentAge"
+            name="studentAge" required />
+    </div>
+    <div class="form-group">
+        <label>Student City</label>
+        <input type="text" class="form-control" placeholder="Enter Student City" [(ngModel)]="student.studentCity"
+            name="studentCity" required />
+    </div>
+    <div class="form-group">
+        <label>Student Gender</label>
+        <input type="text" class="form-control" placeholder="Enter Student Gender" [(ngModel)]="student.studentGender"
+            name="studentGender " required />
+    </div>
+    <div class="form-group">
+        <label>Student Avatar</label>
+        <input type="text" class="form-control" placeholder="Enter Student Avatar URL"
+            [(ngModel)]="student.studentAvatar" name="studentAvatar " required />
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addStudent()">Add Student</button>
+</form>

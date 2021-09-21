@@ -1,0 +1,33 @@
+<div *ngIf="!flag" class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="text-center">
+        <h1 style="color: rgb(209, 0, 0);">Oops! Your database is empty!</h1>
+        <h3>Looks like you haven't added anything to your student database yet</h3>
+        <br>
+        <button type="button" class="btn btn-primary" (click)="addStudent()">Add Student Now</button>
+    </div>
+</div>
+
+
+<div *ngIf="flag" class="container">
+    <div class="row">
+        <div class="columns" *ngFor="let student of studentList">
+            <div class="card">
+                <img class="card-img-top" [src]="student.studentAvatar" alt="{{student.studentName}}">
+                <div class="card-body">
+                    <p class="card-text student-id">#{{student.studentId | studentId}}</p>
+                    <h4 class="card-title">{{student.studentName}}</h4>
+                    <p class="card-text">Student Age : <span style="font-weight: bold;">{{student.studentAge}}</span>
+                    </p>
+                    <p class="card-text">Student City : <span style="font-weight: bold;">{{student.studentCity}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

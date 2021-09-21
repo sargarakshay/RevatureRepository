@@ -1,0 +1,39 @@
+<form class="form">
+    <div class="form-group">
+        <label for="studentId">Student Id</label>
+        <input type="text" class="form-control" placeholder="Enter Student ID" [formControl]="studentId"
+            id="studentId" />
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="getStudentById()">Get Student</button>
+</form>
+
+<br>
+
+<form class="form" [formGroup]="studentUpdateForm">
+    <div class="form-group">
+        <label>Student Name</label>
+        <input type="text" class="form-control" placeholder="Enter Student Name" formControlName="studentName"
+            name="studentName" />
+    </div>
+    <div class="form-group">
+        <label>Student Age</label>
+        <input type="number" class="form-control" placeholder="Enter Student Age" formControlName="studentAge"
+            name="studentAge" />
+    </div>
+    <div class="form-group">
+        <label>Student City</label>
+        <input type="text" class="form-control" placeholder="Enter Student City" formControlName="studentCity"
+            name="studentCity" />
+    </div>
+    <div class="form-group">
+        <label>Student Gender</label>
+        <input type="text" class="form-control" placeholder="Enter Student Gender" formControlName="studentGender"
+            name="studentGender " />
+    </div>
+    <div class="form-group">
+        <label>Student Avatar</label>
+        <input type="text" class="form-control" placeholder="Enter Student Avatar URL" formControlName="studentAvatar"
+            name="studentAvatar " />
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="updateStudent()">Update Student</button>
+</form>
